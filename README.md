@@ -15,53 +15,6 @@ ii. Feature-First Organization: Grouping by feature (listing_product, detail_pro
 iii. Common Reusability: Having a common folder for common_widgets.dart (where we will put your Loading, Error, and Empty states) shows great code hygiene.
 
 ## Here is the draft:
-lib/
-├── app/
-│   └── data/        
-│   │  └── api/
-│   │  │    ├── api_methods.dart
-│   │  │    ├── api_constant.dart 
-│   │  │    └── api_models
-│   │  │         ├── api_list_model.dart
-│   │  │         ├── api_detail_model.dart
-│   │  │         └── api_search_model.dart               
-│   │  │
-│   │  └── constants/
-│   │      ├── gif_constants.dart
-│   │      ├── icons_constants.dart
-│   │      ├── image_constants.dart
-│   │      └── string_constants.dart
-│   │  
-│   ├── modules/
-│   │  ├── listing_product
-│   │  │    ├── bindings
-│   │  │    │   └── listing_product_binding.dart
-│   │  │    ├── controllers
-│   │  │    │   └── listing_product_controller.dart
-│   │  │    │   └── search_product_controller.dart
-│   │  │    └── views
-│   │  │         └── listing_product_view.dart
-│   │  │    
-│   │  └── detail_product
-│   │       ├── bindings
-│   │       │   └── detail_product_binding.dart
-│   │       ├── controllers
-│   │       │   └── detail_product_controller.dart
-│   │       └── views
-│   │           └── detail_product_view.dart
-│   │       
-│   │  
-│   ├── routes/
-│   │       ├── app_pages.dart
-│   │       └── approutes.dart
-│   │
-│   └── common/
-│       ├── alert_dialog_view.dart
-│       ├── common_methods.dart
-│       ├── common_widgets.dart
-│       ├── http_methods.dart
-│       ├── theme_data.dart
-│       └── progress_bar.dart
-│
-└── main.dart
+<img width="422" height="807" alt="image" src="https://github.com/user-attachments/assets/a6dada67-391d-49ed-886d-6d0b0760e868" />
+
 
