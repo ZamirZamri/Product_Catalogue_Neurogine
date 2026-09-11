@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app/common/theme_data.dart';
-import 'app/modules/listing_product/bindings/listing_product_binding.dart';
-import 'app/modules/listing_product/views/listing_product_view.dart';
+import 'app/routes/app_pages.dart';
+import 'app/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Product Catalog',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialBinding: ListingProductBinding(),
-      home: const ListingProductView(),
+      // Use GetX Routing
+      initialRoute: Routes.LISTING,
+      getPages: AppPages.routes,
     );
   }
 }

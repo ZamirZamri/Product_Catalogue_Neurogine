@@ -114,8 +114,8 @@ class ListingProductView extends GetView<ListingProductController> {
                 imageUrl: product.thumbnail,
                 price: product.price,
                 onTap: () {
-                  // We will implement the routing in Commit 6
-                  Get.snackbar('Coming Soon', 'Detail page for ${product.title}');
+                  // Pass the selected product object to the detail screen
+                  Get.toNamed('/detail', arguments: product); 
                 },
               );
             },
