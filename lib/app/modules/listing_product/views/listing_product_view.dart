@@ -12,6 +12,28 @@ class ListingProductView extends GetView<ListingProductController> {
       appBar: AppBar(
         title: const Text('Neurogine Catalog', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
+        // NEW: Search Bar directly in the AppBar
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(70),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: TextField(
+              onChanged: (value) => controller.searchQuery.value = value,
+              decoration: InputDecoration(
+                hintText: 'Search for products (e.g. phone)...',
+                hintStyle: const TextStyle(color: Colors.black38),
+                prefixIcon: const Icon(Icons.search, color: Color(0xFF003366)),
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       // Obx listens to reactive variables from the controller
       body: Obx(() {
