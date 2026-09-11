@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/listing_product_controller.dart';
 import '../../../common/common_widgets.dart';
+import '../../../common/progress_bar.dart';
 
 class ListingProductView extends GetView<ListingProductController> {
   const ListingProductView({super.key});
@@ -39,7 +40,7 @@ class ListingProductView extends GetView<ListingProductController> {
       body: Obx(() {
         // 1. Loading State
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: AestheticProgressBar());
         }
 
         // 2. Error State with Retry Button
@@ -86,8 +87,8 @@ class ListingProductView extends GetView<ListingProductController> {
           color: const Color(0xFF003366),
           child: ListView.builder(
             controller: controller.scrollController,
-            physics: const AlwaysScrollableScrollPhysics(), // Ensures pull-to-refresh works even if list is short
-            itemCount: controller.products.length + 1, // +1 for the loading spinner at the bottom
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemCount: controller.products.length + 1, 
             itemBuilder: (context, index) {
               
               // Handle the very last item (Pagination Spinner)
@@ -95,7 +96,7 @@ class ListingProductView extends GetView<ListingProductController> {
                 if (controller.isLoadingMore.value) {
                   return const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Center(child: CircularProgressIndicator()),
+                    child: Center(child: AestheticProgressBar()), // <-- UPDATED HERE
                   );
                 }
                 if (!controller.hasMoreData.value) {

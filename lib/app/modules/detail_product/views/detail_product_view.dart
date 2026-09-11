@@ -14,6 +14,21 @@ class DetailProductView extends GetView<DetailProductController> {
       appBar: AppBar(
         title: Text(product.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
         centerTitle: true,
+        actions: [
+          Obx(() => IconButton(
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, anim) => ScaleTransition(scale: anim, child: child),
+              child: Icon(
+                controller.isFavorite.value ? Icons.favorite : Icons.favorite_border,
+                key: ValueKey(controller.isFavorite.value), // Crucial for animation
+                color: controller.isFavorite.value ? Colors.redAccent : Colors.white,
+              ),
+            ),
+            onPressed: controller.toggleFavorite,
+          )),
+          const SizedBox(width: 8),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
